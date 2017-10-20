@@ -16,7 +16,7 @@ bot.on("ready", function () {
 
 bot.on("guildMemberAdd", function(member) {
     member.guild.channels.find("name", "bienvenue").sendMessage(member.toString() + " Bienvenue sur le discord Erlealys ! Tu veux plus d'info ? va dans ce channel: #annonces");
-    member.addRole(member.guild.roles.find("name", "Membre"));
+    member.addRole(member.guild.roles.find("name", "Membres"));
 });
 
 bot.on("guildMemberRemove", function(member) {
