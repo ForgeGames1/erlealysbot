@@ -1,34 +1,9 @@
 const Discord = require("discord.js");
-const YTDL = require("ytdl-core");
 
 const TOKEN = "MzYzNjI0MzQ5MDYxNjExNTIw.DLD7Kg.rTpTI-SHkNbQdxAPIv7Z8O9gH94";
 const PREFIX = "*";
 
 var client = new Discord.Client();
-
-function generateHex() {
-    return "#" + Math.floor(Math.random() * 16777215).toString(16);
-}
-
-function callid() {
-   Math.floor(Math.random() * 99999) + 1;
-}
-
-var callid = Math.floor(Math.random() * 99999) + 1;
-
-function play(connection, message) {
-    var server = servers[message.guild.id];
-
-    server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
-
-    server.queue.shift();
-
-    server.dispatcher.on("end", function() {
-        if (server.queue[0]) play(connection, message);
-        else connection.disconnect();
-    });
-}
-
 
 var bot = new Discord.Client();
 
