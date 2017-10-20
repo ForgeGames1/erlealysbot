@@ -94,6 +94,10 @@ bot.on("message", function(message) {
                 .addField("*mute", "Cette commande permet de mute un utilisateur. Pour l'utiliser, faites *mute @(utilisateur)")
                 .addField("*unmute", "Cette commande permet d'unmute un utilisateur. Pour l'utiliser, faites *unmute @(utilisateur)")
                 .addField("*ping", "Grâce à cette commande, tu pourras savoir ton ping !")
+                .addField("*launcher", "Vous donne le lien du téléchargement du launcher !")
+                .addField("*sortie", "Vous donne la sortie du jeu !")
+                .addField("*twitter", "Vous donne le twitter de Erléalys !")
+                .addField("*facebook", "Vous donne la page facebook de Erléalys !")
                 .setColor("#FFFF00")
                 .setFooter("Idée de commande ? Proposer en MP!")
                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -195,7 +199,31 @@ bot.on("message", function(message) {
             message.delete()
             member.guild.channels.find("name", "mod-log").sendEmbed(embed);
             break;
+            
+                   case "site":
+       message.reply('Voici le site: http://erlealys.net');
+       break;
 
+       case "info":
+
+       break;
+
+       case "facebook":
+       message.reply('Voici la page facebook: https://www.facebook.com/erlealys/');
+       break;
+
+       case "twitter":
+       message.reply('Voici le compte twitter du jeu: https://twitter.com/erlealys');
+       break;
+
+       case "sortie":
+       message.reply('le jeu devrais sortir fin 2017, début 2018 !');
+       break;
+
+       case "launcher":
+       message.reply('le launcher du jeu a une maintenance. Veuillez réessayer plus tard.');
+       break;
+            
             default:
             message.channel.sendMessage("Commande invalide ^^")
     }
