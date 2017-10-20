@@ -21,15 +21,11 @@ bot.on("guildMemberAdd", function(member) {
 });
 
 bot.on("guildMemberRemove", function(member) {
-    member.guild.channels.find("name", "goodbye").sendMessage(member.toString() + "A quitté le discord ! :(");
+    member.guild.channels.find("name", "bienvenue").sendMessage(member.toString() + "A quitté le discord ! :(");
 });
 
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
-
-    if (message.content == "A quoi sert le Sonic Bot ?") {
-        message.channel.sendMessage("J'ai été créé par Azecko car il s'ennuyait, tu peux faire _help pour savoir à quoi je sers.");
-    }
 
     if (!message.content.startsWith(PREFIX)) return;
 
@@ -49,7 +45,7 @@ bot.on("message", function(message) {
 
     var roleMembre= member.guild.roles.find("name", "Membres")
     
-    var rolemute = member.guild.roles.find("name", "Mute")
+    var roleMute = member.guild.roles.find("name", "Mute")
     
     var modlog = member.guild.channels.find("name", "mod-log")
 
@@ -76,7 +72,7 @@ bot.on("message", function(message) {
         if(!modlog) return message.reply("Je ne trouve pas de channel mod-log.");
         var member = message.mentions.members.first();
         if (message.mentions.users.size < 1) return message.reply("Hum, à quelle personne je met le mute ?")
-        member.addRole(rolemute)
+        member.addRole(roleMute)
         message.channel.sendMessage("@" + user.username + " a bien été mute.")
         
         var embed = new Discord.RichEmbed()
