@@ -21,7 +21,7 @@ bot.on("guildMemberAdd", function(member) {
 });
 
 bot.on("guildMemberRemove", function(member) {
-    member.guild.channels.find("name", "goodbye").sendMessage(member.toString() + " est parti, on l'aimait.");
+    member.guild.channels.find("name", "goodbye").sendMessage(member.toString() + "A quitté le discord ! :(");
 });
 
 bot.on("message", function(message) {
