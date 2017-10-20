@@ -16,7 +16,6 @@ bot.on("ready", function () {
 
 bot.on("guildMemberAdd", function(member) {
     member.guild.channels.find("name", "bienvenue").sendMessage(member.toString() + " Bienvenue sur le discord Erlealys ! Tu veux plus d'info ? va dans ce channel: #annonces");
-   message.channel.sendMessage("Le rôle **MEMBRE** à été assigné à @" + user.username)
     member.addRole(member.guild.roles.find("name", "Membre"));
 });
 
