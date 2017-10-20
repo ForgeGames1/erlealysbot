@@ -151,7 +151,7 @@ bot.on("message", function(message) {
             if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
             if(!modlog) return message.reply("Je ne trouve pas de channel mod-log.");
             if (reason.length < 1) return message.reply("Tu as oublié la raison.");
-            if (message.mentions.users.size < 1) return message.reply("Tu as oublié de préciser qui je dois kick.")
+            if (message.mentions.users.size < 1) return message.reply("Tu as oublié de préciser qui je dois kick..")
             message.guild.member(user).kick();
 
             var embed = new Discord.RichEmbed()
@@ -169,7 +169,7 @@ bot.on("message", function(message) {
             if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
             if(!modlog) return message.reply("Je ne trouve pas de channel mod-log.");
             if (reason.length < 1) return message.reply("Tu as oublié la raison.");
-            if (message.mentions.users.size < 1) return message.reply("Tu as oublié de préciser qui je dois bannir.")
+            if (message.mentions.users.size < 1) return message.reply("Tu as oublié de préciser qui je dois bannir..")
             message.guild.ban(user, 2);
 
             var embed = new Discord.RichEmbed()
