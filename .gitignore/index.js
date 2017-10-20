@@ -16,7 +16,7 @@ bot.on("ready", function () {
 
 bot.on("guildMemberAdd", function(member) {
     member.guild.channels.find("name", "bienvenue").sendMessage(member.toString() + " Bienvenue sur le discord Erlealys ! Tu veux plus d'info ? va dans ce channel: #annonces");
-
+   message.channel.sendMessage("Le rôle **MEMBRE** à été assigné à @" + user.username)
     member.addRole(member.guild.roles.find("name", "Membre"));
 });
 
@@ -86,25 +86,6 @@ bot.on("message", function(message) {
         .setTimestamp()
         member.guild.channels.find("name", "mod-log").sendEmbed(embed);
         break;
-
-            case "membre":
-            if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
-            if(!modlog) return message.reply("Je ne trouve pas de channel mod-log.");
-            var member = message.mentions.members.first();
-            if (message.mentions.users.size < 1) return message.reply("Hum, à qui je dois mettre le grade ? :D")
-            member.addRole(roleMembre)
-            message.channel.sendMessage("Le rôle **MEMBRE** à été assigné à @" + user.username)
-            message.delete()
-            var embed = new Discord.RichEmbed()
-            .addField("Commande :", "RÔLE MEMBRE")
-            .addField("Utilisateur :", user.username)
-            .addField("Modérateur :", message.author.username)
-            .addField("Heure:", message.channel.createdAt)
-            .setColor("#FFFF00")
-            .setAuthor(message.author.username, message.author.avatarURL)
-            .setTimestamp()
-            member.guild.channels.find("name", "mod-log").sendEmbed(embed);
-            break;
             
             case "help":
             var embed = new Discord.RichEmbed()
