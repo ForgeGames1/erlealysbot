@@ -188,7 +188,7 @@ bot.on("message", function(message) {
             message.channel.fetchMessages({
                 limit: messagecount
             }).then(messages => message.channel.bulkDelete(messagecount));
-
+                        message.delete()
             var embed = new Discord.RichEmbed()
             .addField("Commande :", "PURGE")
             .addField("Modérateur :", message.author.username)
