@@ -123,7 +123,7 @@ bot.on("message", function(message) {
                 .setDescription("Voici les grades disponible sur ce discord:")
                 .setColor("#FFFF00")
                 message.delete()
-                if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("Tu n'as pas la permission.");
+                if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
             message.channel.sendEmbed(embed);
             break;
         case "regles":
