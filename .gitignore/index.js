@@ -63,7 +63,7 @@ bot.on("message", function(message) {
         .addField("Utilisateur :", user.username)
         .addField("Modérateur :", message.author.username)
         .addField("Heure:", message.channel.createdAt)
-        .setColor(0x808000)
+        .setColor("#FFFF00")
         .setAuthor(message.author.username, message.author.avatarURL)
         .setTimestamp()
         member.guild.channels.find("name", "mod-log").sendEmbed(embed);
@@ -81,7 +81,7 @@ bot.on("message", function(message) {
         .addField("Utilisateur :", user.username)
         .addField("Modérateur :", message.author.username)
         .addField("Heure:", message.channel.createdAt)
-        .setColor(0x808000)
+        .setColor("#FFFF00")
         .setAuthor(message.author.username, message.author.avatarURL)
         .setTimestamp()
         member.guild.channels.find("name", "mod-log").sendEmbed(embed);
@@ -175,7 +175,7 @@ bot.on("message", function(message) {
             .addField("Utilisateur :", user.username)
             .addField("Modérateur :", message.author.username)
              .addField("Heure:", message.channel.createdAt)
-            .setColor(0x800000)
+            .setColor("#FFFF00")
             .setAuthor(message.author.username, message.author.avatarURL)
             .setTimestamp()
             member.guild.channels.find("name", "mod-log").sendEmbed(embed);
