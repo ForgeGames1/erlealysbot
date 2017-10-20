@@ -58,7 +58,7 @@ bot.on("message", function(message) {
         message.channel.sendMessage("@" + user.username + " a bien été unmute")
         
         var embed = new Discord.RichEmbed()
-        .addField("Action :", "Unmute")
+            .addField("Commande :", "UNMUTE")
         .addField("Utilisateur :", user.username)
         .addField("Modérateur :", message.author.username)
         .addField("Heure:", message.channel.createdAt)
@@ -76,7 +76,7 @@ bot.on("message", function(message) {
         message.channel.sendMessage("@" + user.username + " a bien été mute.")
         
         var embed = new Discord.RichEmbed()
-        .addField("Action :", "Mute")
+            .addField("Commande :", "MUTE")
         .addField("Utilisateur :", user.username)
         .addField("Modérateur :", message.author.username)
         .addField("Heure:", message.channel.createdAt)
