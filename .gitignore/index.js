@@ -15,12 +15,16 @@ bot.on("ready", function () {
 });
 
 bot.on("guildMemberAdd", function(member) {
-    member.guild.channels.find("name", "bienvenue").sendMessage(member.toString() + " Bienvenue sur le discord Erlealys ! Tu veux plus d'info ? va dans ce channel: #annonces");
+    member.guild.channels.find("name", "bienvenue-welcome").sendMessage(member.toString() + " Bienvenue sur le discord Erlealys ! Tu veux plus d'info ? va dans ce channel: #annonces");
     member.addRole(member.guild.roles.find("name", "Membres"));
 });
 
 bot.on("guildMemberRemove", function(member) {
-    member.guild.channels.find("name", "bienvenue").sendMessage(member.toString() + "A quitté le discord ! :(");
+    member.guild.channels.find("name", "bienvenue-welcome").sendMessage(member.toString() + "A quitté le discord ! :(");
+});
+
+bot.on("channelCreate", function(channelCreate) {
+    channelCreate.guild.channels.find("name", "annonces-announcements").sendMessage("Un nouveau salon fait son apparition: " + channelCreate.toString() + " !");
 });
 
 bot.on("message", function(message) {
