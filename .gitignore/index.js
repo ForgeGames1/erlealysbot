@@ -191,7 +191,7 @@ bot.on("message", async function(message) {
             .addField("Commande :", "KICK")
             .addField("Utilisateur :", user.username)
             .addField("Modérateur :", message.author.username)
-            .addField("Raison : ", reasontimed)
+            .addField("Raison : ", reason)
             .addField("Heure:", message.channel.createdAt)
             .setColor("#01A9DB")
             .setAuthor(message.author.username, message.author.avatarURL)
@@ -214,14 +214,14 @@ bot.on("message", async function(message) {
             .addField("Commande :", "BAN")
             .addField("Utilisateur :", user.username)
             .addField("Modérateur :", message.author.username)
-            .addField("Raison : ", reasontimed)
+            .addField("Raison : ", reason)
             .addField("Heure:", message.channel.createdAt)
             .setColor("#01A9DB")
             .setAuthor(message.author.username, message.author.avatarURL)
             .setTimestamp()
             member.guild.channels.find("name", "log").sendEmbed(embed);
             
-            bot.channels.get('373240336169828353').sendMessage(":white_check_mark: Le joueur " + user.username + " à bien été kick pour: " + reasontimed);
+            bot.channels.get('373240336169828353').sendMessage(":white_check_mark: Le joueur " + user.username + " à bien été kick pour: " + reason);
             
             message.delete();
             break;
@@ -256,113 +256,6 @@ bot.on("message", async function(message) {
         break; 
   
             /* ALIAS */
-            
-            
-            case "p":
-            if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
-            var messagecount = parseInt(args2.join(" "));
-            message.channel.fetchMessages({
-                limit: messagecount
-            }).then(messages => message.channel.bulkDelete(messagecount));
-                        message.delete()
-            var embed = new Discord.RichEmbed()
-            .addField("Commande :", "PURGE")
-            .addField("Modérateur :", message.author.username)
-            .addField("Message supprimé", messagecount)
-            .addField("Heure:", message.channel.createdAt)
-            .setColor("#01A9DB")
-            .setFooter("Ouf ! Sa as fait un bon ménage dans le channel ! ^^")
-            message.delete()
-            member.guild.channels.find("name", "log").sendEmbed(embed);
-            break;;
-        
-            case "b":
-            if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
-            if(!modlog) return message.reply("Je ne trouve pas de channel log.");
-            if (reason.length < 1) return message.reply("Tu as oublié la raison.");
-            if (message.mentions.users.size < 1) return message.reply("Tu as oublié de préciser qui je dois bannir..")
-            
-            message.guild.ban(user, 2);
-            message.channel.send(user.toString() + " a bien été banni ✅")
-
-            var embed = new Discord.RichEmbed()
-            .addField("Commande :", "BAN")
-            .addField("Utilisateur :", user.username)
-            .addField("Modérateur :", message.author.username)
-            .addField("Raison : ", reasontimed)
-            .addField("Heure:", message.channel.createdAt)
-            .setColor("#01A9DB")
-            .setAuthor(message.author.username, message.author.avatarURL)
-            .setTimestamp()
-            member.guild.channels.find("name", "log").sendEmbed(embed);
-            
-            bot.channels.get('373240336169828353').sendMessage(":white_check_mark: Le joueur " + user.username + " à bien été kick pour: " + reasontimed);
-            
-            message.delete();
-            break;
-            
-            case "k":
-            if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.sendMessage("Tu ne peux exécuter cette commande. :x:");
-            if(!modlog) return message.reply("Je ne trouve pas de channel log.");
-            if (!reasontimed) return message.reply("Tu as oublié la raison.")
-            if (message.mentions.users.size < 1) return message.reply("Tu n'as pas mis son pseudo au complet ! :o")
-            message.guild.member(user).kick();
-            message.channel.send(user.toString() + " a bien été kick ✅")
-
-            var embed = new Discord.RichEmbed()
-            .addField("Commande :", "KICK")
-            .addField("Utilisateur :", user.username)
-            .addField("Modérateur :", message.author.username)
-            .addField("Raison : ", reasontimed)
-            .addField("Heure:", message.channel.createdAt)
-            .setColor("#01A9DB")
-            .setAuthor(message.author.username, message.author.avatarURL)
-            .setTimestamp()
-            member.guild.channels.find("name", "log").sendEmbed(embed);
-            bot.channels.get('373240336169828353').sendMessage(":white_check_mark: Le joueur " + user.username + " à bien été kick pour: " + reason);
-       
-            message.delete();
-            break;
-            
-        case "m":
-        if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.sendMessage("Tu n'as pas la permission.");
-        if(!modlog) return message.reply("Je ne trouve pas de channel mod-log.");  
-        if (!reasontimed) return message.reply("Tu as oublié la raison.")
-        var member = message.mentions.members.first();
-        if (message.mentions.users.size < 1) return message.reply("Tu as oublié de préciser qui je dois Mute.")
-        message.channel.sendMessage(member.toString() + " a bien été mute. ✅")
-        member.addRole(roleMute)
-        setTimeout(() => { member.removeRole(roleMute); }, time);
-
-        var embed = new Discord.RichEmbed()
-        .addField("Action :", "Mute")
-        .addField("Utilisateur :", user.toString())
-        .addField("Modérateur :", message.author.toString())
-        .addField("Raison :", reasontimed)
-        .setColor(0x808000)
-        .setAuthor(message.author.username, message.author.avatarURL)
-        .setTimestamp()
-        member.guild.channels.find("name", "log").sendEmbed(embed);
-        break;
-            
-         case "um":
-        if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
-        if(!modlog) return message.reply("Je ne trouve pas de channel log.");
-        var member = message.mentions.members.first();
-        if (message.mentions.users.size < 1) return message.reply("Hum, à quelle personne j'enleve le unmute?")
-        member.removeRole(roleMute)
-        message.channel.sendMessage(user.toString() + " a bien été unmute ✅")
-        
-        var embed = new Discord.RichEmbed()
-        .addField("Commande :", "UNMUTE")
-        .addField("Utilisateur :", user.username)
-        .addField("Modérateur :", message.author.username)
-        .addField("Heure:", message.channel.createdAt)
-        .setColor("#01A9DB")
-        .setAuthor(message.author.username, message.author.avatarURL)
-        .setTimestamp()
-        member.guild.channels.find("name", "log").sendEmbed(embed);
-        break;
             
         default:
             message.channel.sendMessage("Commande invalide ^^ Fait *help pour voir toutes les commandes disponibles !")
