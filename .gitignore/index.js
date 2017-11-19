@@ -53,12 +53,12 @@ bot.on('message', function(message) {
     });
 
 bot.on("guildMemberAdd", function(member) {
-    member.guild.channels.find("name", "principal").sendMessage(member.toString() + " Bienvenue sur le discord de **Erléalys** ! :white_check_mark:");
+    member.guild.channels.find("name", "nouveaux").sendMessage(member.toString() + " Bienvenue sur le discord de **Erléalys** ! :white_check_mark:");
     member.addRole(member.guild.roles.find("name", "●  ⚙️ MEMBRES 🛠 ●"));
 });
 
 bot.on("guildMemberRemove", function(member) {
-     member.guild.channels.find("name", "principal").sendMessage(member.toString() + " Bye bye!" + member.toString() + " :x:");
+     member.guild.channels.find("name", "nouveaux").sendMessage(member.toString() + " Bye bye!" + member.toString() + " :x:");
 });
 
 
