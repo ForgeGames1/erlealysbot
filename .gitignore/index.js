@@ -4,8 +4,6 @@ const EVERYONE = "@";
 
 var client = new Discord.Client();
 
-const queue = new Map();
-
 var bot = new Discord.Client();
 
 var servers = {};
