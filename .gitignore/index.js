@@ -117,7 +117,7 @@ bot.on("message", async function(message) {
         .addField("Utilisateur :", user.username)
         .addField("Modérateur :", message.author.username)
         .addField("Heure:", message.channel.createdAt)
-        .setColor("#01A9DB")
+        .setColor("#FFFF00")
         .setAuthor(message.author.username, message.author.avatarURL)
         .setTimestamp()
         member.guild.channels.find("name", "log").sendEmbed(embed);
@@ -136,7 +136,7 @@ bot.on("message", async function(message) {
         .addField("Utilisateur :", user.toString())
         .addField("Modérateur :", message.author.toString())
         .addField("Raison :", reasontimed)
-        .setColor(0x808000)
+        .setColor(#FFFF00)
         .setAuthor(message.author.username, message.author.avatarURL)
         .setTimestamp()
         member.guild.channels.find("name", "log").sendEmbed(embed);
@@ -153,7 +153,7 @@ bot.on("message", async function(message) {
                  .addField("*play", "Jouer une musique !  Pour l'utiliser, faites *play (lien) !")
                  .addField("*skip", "Sauter une musique  Pour l'utiliser, faites *skip !")
                  .addField("*stop", "Arreter la musique  Pour l'utiliser, faites *stop !")
-                .setColor("#01A9DB")
+                .setColor("#FFFF00")
                 .setFooter("Idée de commande ? Proposer en MP!")
                 .setAuthor(message.author.username, message.author.avatarURL)
                 .setDescription("Voici les commandes du ErléalysBot V2 !")
@@ -175,7 +175,7 @@ bot.on("message", async function(message) {
             .addField("Modérateur :", message.author.username)
             .addField("Raison : ", reason)
             .addField("Heure:", message.channel.createdAt)
-            .setColor("#01A9DB")
+            .setColor("#FFFF00")
             .setAuthor(message.author.username, message.author.avatarURL)
             .setTimestamp()
             member.guild.channels.find("name", "log").sendEmbed(embed);
@@ -198,7 +198,7 @@ bot.on("message", async function(message) {
             .addField("Modérateur :", message.author.username)
             .addField("Raison : ", reason)
             .addField("Heure:", message.channel.createdAt)
-            .setColor("#01A9DB")
+            .setColor("#FFFF00")
             .setAuthor(message.author.username, message.author.avatarURL)
             .setTimestamp()
             member.guild.channels.find("name", "log").sendEmbed(embed);
@@ -219,7 +219,7 @@ bot.on("message", async function(message) {
             .addField("Modérateur :", message.author.username)
             .addField("Message supprimé", messagecount)
             .addField("Heure:", message.channel.createdAt)
-            .setColor("#01A9DB")
+            .setColor("#FFFF00")
             .setFooter("Ouf ! Sa as fait un bon ménage dans le channel ! ^^")
             message.delete()
             member.guild.channels.find("name", "log").sendEmbed(embed);
