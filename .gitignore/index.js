@@ -235,7 +235,7 @@ bot.on("message", async function(message) {
         break; 
             
       
-           
+        default:
             message.channel.sendMessage("Commande invalide ^^ Fait *help pour voir toutes les commandes disponibles !")
     }
 });
