@@ -11,9 +11,7 @@ var servers = {};
 bot.on("ready", function () {
     bot.user.setGame("|ErléalysBot V2 - *help |", "https://www.twitch.tv/xecraft_dev")
     bot.user.setUsername("ErléalysBot - V2")
-    console.log("*``*___*``*");
     console.log("ErléalysBot V2 - Connecté");
-        console.log("*``*___*``*");
 });
 
 bot.on('message', function(message) {
@@ -92,10 +90,6 @@ bot.on("message", async function(message) {
     var modlog = member.guild.channels.find("name", "log")
     
     var user = message.mentions.users.first();
-    
-    const serverQueue = queue.get(message.guild.id);
-
-    const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
 
 
     switch (args[0].toLowerCase()) {
