@@ -171,7 +171,7 @@ bot.on("message", async function(message) {
                 .addField("*ban / *b", "Cette commande permet de bannir un utilisateur ! Pour l'utiliser, faites *ban @(utilisateur) + (raison)")
                 .addField("*kick / *k", "Cette commande permet de kick un utilisateur ! Pour l'utiliser, faites *kick @(utilisateur) + (raison)")
                 .addField("*purge / *p", "Cette commande permet de supprimé des messages beaucoup plus rapidement ! Pour l'utiliser, faites *purge (nombredemessages)")
-                .addField("*mute / *m", "Cette commande permet de muté un utilisateur pendant un certain temps. Pour l'utiliser, faites z!mute @(utilisateur) + (raison)")
+                .addField("*mute / *m", "Cette commande permet de muté un utilisateur pendant un certain temps. Pour l'utiliser, faites *mute @(utilisateur) + (raison)")
                 .addField("*unmute / *um", "Cette commande permet d'unmute un utilisateur. Pour l'utiliser, faites *unmute @(utilisateur)")
                 .addField("*ping", "Grâce à cette commande, tu pourras savoir ton ping !") 
                 .addField("*twitter", "Vous donne le twitter du jeu !")
