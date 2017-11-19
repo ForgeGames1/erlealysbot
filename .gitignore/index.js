@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const YTDL = require("ytdl-core");
-const PREFIX = "z!";
+const PREFIX = "*";
 const EVERYONE = "@";
 const YouTube = require("simple-youtube-api")
 
@@ -373,7 +373,7 @@ bot.on("message", async function(message) {
         break;
             
         default:
-            message.channel.sendMessage("Commande invalide ^^ Fait z!help pour voir toutes les commandes disponibles !")
+            message.channel.sendMessage("Commande invalide ^^ Fait *help pour voir toutes les commandes disponibles !")
     }
 });
 
