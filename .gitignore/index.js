@@ -115,9 +115,9 @@ bot.on("message", async function(message) {
         member.guild.channels.find("name", "log").sendEmbed(embed);
         break;
         case "mute":
-        if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.sendMessage("Tu n'as pas la permission d'exceuter la commande.");
+        if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.sendMessage("Tu n'as pas la permission d'excéuter la commande. :x:");
         if(!modlog) return message.reply("Je ne trouve pas de channel log.");  
-        if (!reasontimed) return message.reply("Tu as oublié la raison.")
+        if (!reasontimed) return message.reply("Tu as oublié la raison ! :D")
         var member = message.mentions.members.first();
         if (message.mentions.users.size < 1) return message.reply("À qui je dois mettre la sanction: MUTE")
         message.channel.sendMessage(member.toString() + " a bien été mute. ✅")
@@ -142,9 +142,9 @@ bot.on("message", async function(message) {
                  .addField("*unmute", "Cette commande permet d'unmute un utilisateur. Pour l'utiliser, faites *unmute @(utilisateur)")
                  .addField("*ping", "Grâce à cette commande, tu pourras savoir ton ping !") 
                  .addField("*twitter", "Vous donne le twitter du jeu !")
-                 .addField("*play", "Jouer une musique !  Pour l'utiliser, faites *play (lien) !")
+            /*     .addField("*play", "Jouer une musique !  Pour l'utiliser, faites *play (lien) !")
                  .addField("*skip", "Sauter une musique  Pour l'utiliser, faites *skip !")
-                 .addField("*stop", "Arreter la musique  Pour l'utiliser, faites *stop !")
+                 .addField("*stop", "Arreter la musique  Pour l'utiliser, faites *stop !")*/
                 .setColor("#FFFF00")
                 .setFooter("Idée de commande ? Proposer en MP!")
                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -154,9 +154,9 @@ bot.on("message", async function(message) {
                 message.channel.sendEmbed(embed)
             break;
         case "kick":
-            if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.sendMessage("Tu n'as pas la permission d'exceuter la commande.");
+            if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.sendMessage("Tu n'as pas la permission d'excéuter la commande. :x:");
             if(!modlog) return message.reply("Je ne trouve pas de channel log.");
-            if (reason.length < 1) return message.reply("Tu as oublié la raison.");
+            if (reason.length < 1) return message.reply("Tu as oublié la raison ! :D");
             if (message.mentions.users.size < 1) return message.reply("Tu n'as pas mis son pseudo au complet ! :o")
             message.guild.member(user).kick();
             message.channel.send(user.toString() + " a bien été kick ✅")
@@ -231,6 +231,7 @@ bot.on("message", async function(message) {
       
         default:
             message.channel.sendMessage("Commande invalide ^^ Fait *help pour voir toutes les commandes disponibles !")
+            message.delete();
     }
 });
 
