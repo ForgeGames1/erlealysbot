@@ -128,7 +128,7 @@ bot.on("message", async function(message) {
         .addField("Utilisateur :", user.toString())
         .addField("Modérateur :", message.author.toString())
         .addField("Raison :", reasontimed)
-        .setColor(#FFFF00)
+        .setColor("#FFFF00")
         .setAuthor(message.author.username, message.author.avatarURL)
         .setTimestamp()
         member.guild.channels.find("name", "log").sendEmbed(embed);
