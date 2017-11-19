@@ -227,7 +227,7 @@ bot.on("message", async function(message) {
 
 
        case "twitter":
-       message.reply('Voici le compte twitter de Zelkiax: https://twitter.com/erlealys');
+       message.reply('Voici le compte twitter du jeu: https://twitter.com/erlealys');
        message.delete();
        break;
 
