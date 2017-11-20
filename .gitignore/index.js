@@ -17,7 +17,7 @@ function play(connection, message) {
     server.queue.shift();
     
     server.dispatcher.on("end", function() {
-     if (server.queue[0] play(connection, message);
+     if (server.queue[0]) play(connection, message);
      else connection.disconnect();
     });
 }
