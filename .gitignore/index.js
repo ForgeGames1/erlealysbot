@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const YTDL = require("ytdl-core");
 const PREFIX = "*";
+const queue = new Map();
 const EVERYONE = "@";
 
 var client = new Discord.Client();
