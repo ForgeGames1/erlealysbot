@@ -131,11 +131,19 @@ bot.on("message", async function(message) {
             });
         break;    
         case "skip":
+             if(!message.member.voiceChannel) {
+             message.channel.sendMessage("[ErléalysBot Musique] - Vous devez être dans un salon vocal.");   
+             return;
+            }
             var server = servers[message.guild.id];
-            
+            if (!serverQueue) return message.channel.send("[ErléalysBot Musique] - Aucune musique est joué, je ne peux donc pas exécuter cette commande.")
             if(server.dispatcher) server.dispatcher.end();
         break;    
         case "stop":
+             if(!message.member.voiceChannel) {
+             message.channel.sendMessage("[ErléalysBot Musique] - Vous devez être dans un salon vocal.");   
+             return;
+            }
              const serverQueue = queue.get(message.guild.id);
              var server = servers[message.guild.id];
              if (!serverQueue) return message.channel.send("[ErléalysBot Musique] - Aucune musique est joué, je ne peux donc pas exécuter cette commande.")
