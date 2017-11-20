@@ -29,6 +29,12 @@ bot.on("ready", function () {
     console.log("ErléalysBot V2 - Connecté");
 });
 
+bot.on("ready", function() {
+    bot.user.setGame("[AFK] - |ErléalysBot V2 - *help |", "https://www.twitch.tv/xecraft_dev")
+    bot.user.setUsername("[AFK] - ErléalysBot - V2")
+    console.log("ErléalysBot V2 - Deconnecté");
+}
+
 bot.on('message', function(message) {
 
         if(message.content === 'Salut') {
@@ -130,16 +136,16 @@ bot.on("message", async function(message) {
                play(connection, message) 
             });
         break;    
+      
         case "skip":
              if(!message.member.voiceChannel) {
              message.channel.sendMessage("[ErléalysBot Musique] - Vous devez être dans un salon vocal.");   
              return;
             }
-            const serverQueue = queue.get(message.guild.id);
             var server = servers[message.guild.id];
-            if (!serverQueue) return message.channel.send("[ErléalysBot Musique] - Aucune musique est joué, je ne peux donc pas exécuter cette commande.")
             if(server.dispatcher) server.dispatcher.end();
         break;    
+      
         case "stop":
              if(!message.member.voiceChannel) {
              message.channel.sendMessage("[ErléalysBot Musique] - Vous devez être dans un salon vocal.");   
