@@ -12,7 +12,7 @@ var servers = {};
 function play(connection, message) {
  var server = servers[message.guild.id];
     
-    server.dispatcher = connection.playStream(YTDL(message.song));
+    server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
     
     server.queue.shift();
     
@@ -122,6 +122,8 @@ bot.on("message", async function(message) {
             };
             
             var server = servers[message.guild.id];
+      
+            server.queue.push(args[1);
             
             if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
                play(connection, message) 
