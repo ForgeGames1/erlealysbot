@@ -29,12 +29,6 @@ bot.on("ready", function () {
     console.log("ErléalysBot V2 - Connecté");
 });
 
-bot.on("disconnect", function() {
-    bot.user.setGame("[AFK] - |ErléalysBot V2 - *help |", "https://www.twitch.tv/xecraft_dev")
-    bot.user.setUsername("[AFK] - ErléalysBot - V2")
-    console.log("ErléalysBot V2 - Deconnecté");
-}
-
 bot.on('message', function(message) {
 
         if(message.content === 'Salut') {
