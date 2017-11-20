@@ -200,9 +200,9 @@ bot.on("message", async function(message) {
                  .addField("*unmute", "Cette commande permet d'unmute un utilisateur. Pour l'utiliser, faites *unmute @(utilisateur)")
                  .addField("*ping", "Grâce à cette commande, tu pourras savoir ton ping !") 
                  .addField("*twitter", "Vous donne le twitter du jeu !")
-            /*     .addField("*play", "Jouer une musique !  Pour l'utiliser, faites *play (lien) !")
+                 .addField("*play", "Jouer une musique !  Pour l'utiliser, faites *play (lien) !")
                  .addField("*skip", "Sauter une musique  Pour l'utiliser, faites *skip !")
-                 .addField("*stop", "Arreter la musique  Pour l'utiliser, faites *stop !")*/
+                 .addField("*stop", "Arreter la musique  Pour l'utiliser, faites *stop !")
                 .setColor("#FFFF00")
                 .setFooter("Idée de commande ? Proposer en MP!")
                 .setAuthor(message.author.username, message.author.avatarURL)
