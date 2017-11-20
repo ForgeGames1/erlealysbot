@@ -136,6 +136,7 @@ bot.on("message", async function(message) {
              return;
             }
             var server = servers[message.guild.id];
+           const serverQueue = queue.get(message.guild.id);
             if (!serverQueue) return message.channel.send("[ErléalysBot Musique] - Aucune musique est joué, je ne peux donc pas exécuter cette commande.")
             if(server.dispatcher) server.dispatcher.end();
         break;    
