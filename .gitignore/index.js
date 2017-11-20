@@ -135,9 +135,11 @@ bot.on("message", async function(message) {
             if(server.dispatcher) server.dispatcher.end();
         break;    
         case "stop":
-            var server = servers[message.guild.id];
-            
+             const serverQueue = queue.get(message.guild.id);
+             var server = servers[message.guild.id];
+             if (!serverQueue) return message.channel.send("[ErléalysBot Musique] - Aucune musique est joué, je ne peux donc pas exécuter cette commande.")
             if(message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+     
         break;    
         case "membres":
             message.reply("Nous sommes " + bot.users.size + " membres sur le discord !");
