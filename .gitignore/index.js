@@ -135,8 +135,8 @@ bot.on("message", async function(message) {
              message.channel.sendMessage("[ErléalysBot Musique] - Vous devez être dans un salon vocal.");   
              return;
             }
+            const serverQueue = queue.get(message.guild.id);
             var server = servers[message.guild.id];
-           const serverQueue = queue.get(message.guild.id);
             if (!serverQueue) return message.channel.send("[ErléalysBot Musique] - Aucune musique est joué, je ne peux donc pas exécuter cette commande.")
             if(server.dispatcher) server.dispatcher.end();
         break;    
