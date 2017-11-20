@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const YTDL = require("ytdl-core");
 const PREFIX = "*";
 const EVERYONE = "@";
 
@@ -7,6 +8,19 @@ var client = new Discord.Client();
 var bot = new Discord.Client();
 
 var servers = {};
+
+function play(connection, message) {
+ var server = servers[message.guild.id];
+    
+    server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
+    
+    server.queue.shift();
+    
+    server.dispatcher.on("end", function() {
+     if (server.queue[0] play(connection, message);
+     else connection.disconnect();
+    });
+}
 
 bot.on("ready", function () {
     bot.user.setGame("|ErléalysBot V2 - *help |", "https://www.twitch.tv/xecraft_dev")
@@ -93,6 +107,36 @@ bot.on("message", async function(message) {
 
 
     switch (args[0].toLowerCase()) {
+        case "play":
+            if (!args[1]) {
+             message.channel.sendMessage("[ErléalysBot Musique] - Vous devez mettre un lien.");   
+             return;
+            }
+            if(!message.member.voiceChannel) {
+             message.channel.sendMessage("[ErléalysBot Musique] - Vous devez être dans un salon vocal.");   
+             return;
+            }
+            
+            if(!servers[message.guild.id]) servers[message.guild.id] = {
+                queue: []
+            };
+            
+            var server = servers[message.guild.id];
+            
+            if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
+               play(connection, message) 
+            });
+        break;    
+        case "skip":
+            var server = servers[message.guild.id];
+            
+            if(server.dispatcher) server.dispatcher.end();
+        break;    
+        case "stop":
+            var server = servers[message.guild.id];
+            
+            if(message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+        break;    
         case "membres":
             message.reply("Nous sommes " + bot.users.size + " membres sur le discord !");
         break
